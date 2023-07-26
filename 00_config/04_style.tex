@@ -34,15 +34,16 @@
 
 %% For regular slides, the title is defined as follows:
 \setbeamertemplate{frametitle}{
-    \begin{minipage}[c][3.6em][c]{0.84\textwidth}
+    \begin{minipage}[c][3.6em][c]{\textwidth}
+        \centering
         \bigskip
         \textbf{\insertframetitle}\insertframesubtitle
     \end{minipage}
 }
 \setbeamerfont{frametitle}{size=\Large}
 \setbeamerfont{framesubtitle}{size=\small}
-\setbeamercolor{frametitle}{fg=bgcolor}
-\setbeamercolor{frametitle-left}{fg=bgcolor}
+\setbeamercolor{frametitle}{fg=fgcolor}
+\setbeamercolor{frametitle-left}{fg=fgcolor}
 
 
 %% Colors for slide components:
