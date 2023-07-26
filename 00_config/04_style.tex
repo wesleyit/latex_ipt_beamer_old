@@ -1,0 +1,132 @@
+% =============================================================================
+%% Themes, Look and Feel
+% This section is designed to define the presentation look and feel.
+% Aspects like colors, font sizes and families are defined here:
+
+
+%% Slide margins:
+\setbeamersize{text margin left=25pt,text margin right=25pt}
+
+
+%% Font Definitions:
+\setmainfont{Bookerly Display}
+\setsansfont{Segoe UI}
+\setmonofont{FantasqueSansMono Nerd Font Mono}
+\usefonttheme[onlymath]{serif}
+
+
+%% This will define colors that can be used as a theme:
+\definecolor{fgcolor}{HTML}{005B90}
+\definecolor{bgcolor}{HTML}{FFFFFF}
+\definecolor{c1color}{HTML}{00BAEA}
+\definecolor{c2color}{HTML}{6E6E70}
+\definecolor{c3color}{HTML}{F0F0F6}
+
+
+%% Thee following sizes are used in the cover slide:
+\setbeamerfont{title}{size=\Huge}  % Title slides
+\setbeamerfont{subtitle}{size=\Large}
+\setbeamerfont{author}{size=\normalsize}
+\setbeamerfont{institute}{size=\large}
+\setbeamerfont{date}{size=\tiny}
+\setbeamerfont{footline}{size=\tiny}
+
+
+%% For regular slides, the title is defined as follows:
+\setbeamertemplate{frametitle}{
+    \begin{minipage}[c][3.6em][c]{0.84\textwidth}
+        \bigskip
+        \textbf{\insertframetitle}\insertframesubtitle
+    \end{minipage}
+}
+\setbeamerfont{frametitle}{size=\Large}
+\setbeamerfont{framesubtitle}{size=\small}
+\setbeamercolor{frametitle}{fg=bgcolor}
+\setbeamercolor{frametitle-left}{fg=bgcolor}
+
+
+%% Colors for slide components:
+\setbeamercolor*{background canvas}{bg=bgcolor}  % Colors
+\setbeamercolor*{title}{fg=fgcolor}
+\setbeamercolor*{subtitle}{fg=fgcolor}
+\setbeamercolor*{author}{fg=fgcolor}
+\setbeamercolor*{footline}{fg=c2color}
+\setbeamercolor*{itemize item}{fg=fgcolor}
+\setbeamercolor*{itemize subitem}{fg=fgcolor}
+\setbeamercolor*{normal text}{fg=fgcolor}
+\setbeamercolor{bibliography item}{fg=c1color}
+\setbeamercolor{bibliography entry author}{fg=fgcolor}
+\setbeamercolor{bibliography entry title}{fg=fgcolor}
+\setbeamercolor{bibliography entry location}{fg=fgcolor}
+\setbeamercolor{bibliography entry note}{fg=fgcolor}
+
+
+%% Style for other elements:
+\setbeamertemplate{bibliography item}{}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+
+
+%% Include the number in captions:
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{\space--\space}
+\captionsetup[figure]{labelfont=bf, name=Figura}
+
+
+% =============================================================================
+%% In Computer Science it is very common to present source code.
+% This settings will format lstlistings properly:
+\lstdefinestyle{ABNTCodeStyle}{
+    backgroundcolor=\color{white},
+    commentstyle=\itshape\color{darkgray},
+    keywordstyle=\bfseries\color{magenta},
+    numberstyle=\color{lightgray},
+    stringstyle=\color{blue},
+    basicstyle=\ttfamily\footnotesize\color{black},
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=t,
+    frame=lines,
+    identifierstyle=\bfseries\color{black},
+    keepspaces=true,
+    numbers=left,
+    numbersep=20pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+}
+\lstset{style=ABNTCodeStyle}
+\renewcommand{\lstlistingname}{Código-fonte}
+
+
+% =============================================================================
+%% Package hyperref setup
+% This will set metadata in the resulting PDF file.
+% It also will properly set colors in the hyperlinks:
+\makeatletter
+\pdfstringdefDisableCommands{
+\def\\{}
+\def\texttt#1{<#1>}
+}
+\makeatother
+\hypersetup{
+    colorlinks=true,
+    linkcolor=fgcolor,
+    filecolor=fgcolor,
+    citecolor=fgcolor,
+    urlcolor=c1color,
+    pdfauthor={\thsstudent},
+    pdftitle={\thstitle},
+    pdfsubject={\thstitle},
+    pdfkeywords={\thskeywords},
+    pdfpagemode=FullScreen
+}
+%% This will create links to references and URLs
+% and also display in which page a reference is cited:
+\DefineBibliographyStrings{brazilian}{
+    backrefpage={Citado na página\space},
+    backrefpages={Citado nas páginas\space}
+}
+
+% =============================================================================

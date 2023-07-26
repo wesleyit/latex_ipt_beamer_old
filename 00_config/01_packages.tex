@@ -1,0 +1,86 @@
+% =============================================================================
+%% Packages -- Only necessary and tested packages here:
+
+
+% =============================================================================
+%% Language, links, lists and citations:
+\usepackage[english, brazilian]{babel}  % pt_br and en_us support
+\usepackage[backend=biber,backref=true,repeatfields=true,style=abnt]{biblatex}
+\addbibresource{./01_include/references.bib}
+
+%% These packages are required by biblatex, and improve its capabilities:
+\usepackage{csquotes}
+\usepackage{quoting}
+\usepackage{hyperref}
+
+% To have acronyms and glossaries working:
+\usepackage[printonlyused]{acronym}
+
+
+% =============================================================================
+%% Fonts, headers, titles and captions:
+\usepackage{caption}  % better captions on images, tables and boards
+
+% These fonts are used for special math symbols.
+% American Mathematical Society packages:
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+% Although this package requires xelatex or luatex,
+% it allows to change fonts for the entire document
+% using TTF files or fonts available in the SO:
+\usepackage{fontspec}
+
+% Better time and date printing:
+\usepackage[portuges]{datetime2}
+
+% Better headers and footers:
+\usepackage{fancyhdr}
+
+
+% =============================================================================
+%% Images, tables, boards, columns, margins, indent and related:
+%% These packages help to improve the tables building:
+\usepackage{array}  % Offers more flexible column formatting
+\usepackage{booktabs}  % Supports professional looking tables
+\usepackage{tabularx}  % Columns that expands to fill
+\usepackage{multirow}  % Lets tabular material span multiple rows
+\usepackage{array}  % Provides tabular that can split across pages
+\usepackage{multicol}  % Creates text columns
+
+%% Tools for drawing boxes:
+\usepackage{tcolorbox}
+
+%% This enables \fbox, \shadowbox, \doublebox, \ovalbox and \Ovalbox:
+\usepackage{fancybox}
+
+%% These packages allow setting line spacing and margins:
+\usepackage{geometry}  % This package allows selecting margins size
+\usepackage{setspace}  % Allows selecting line spacing
+\usepackage{indentfirst}  % Indents each first paragraph
+
+%% The float package is necessary for creating custom float types,
+% like boards, a new kind of table:
+\usepackage{float}
+
+%% Insert pictures, make drawings and plots:
+\usepackage{graphicx}
+\graphicspath{{./03_images/}}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+%% Better formatting for source codes:
+\usepackage{listings}
+
+
+% =====================================================================
+%% These are packages used for Development and Debugging:
+
+%% Generate dummy text:
+\usepackage{lipsum}
+
+%% Show frames for debugging hbox errors:
+% \usepackage{showframe}

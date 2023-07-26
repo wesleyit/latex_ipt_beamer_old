@@ -1,0 +1,143 @@
+% =============================================================================
+%% Slide Templates, Tools and Modifiers
+% This section is designed to provide simple commands which users can
+% issue in order to create slides with the same visual appearance, and
+% also to configure important working aspects:
+
+%% This will create a cover slide:
+\newcommand{\SlideCover}{{
+            \usebackgroundtemplate{\includegraphics[width=\paperwidth]{./03_images/template/title_a.png}}
+            \color{fgcolor}
+            \setbeamertemplate{footline}{}
+            \begin{frame}
+                \centering
+                \vspace*{10\baselineskip}
+                \Huge{\textbf\thstitle}\par
+                \smallskip
+                \huge{\thsprof}\par
+                \bigskip
+                \large{\textbf\thstask}\par
+                \normalsize{\thsstudent}\par
+                \bigskip
+                \bigskip
+                \small{\thscity\space--\space\thsmonth, \thsyear}\par
+                \bigskip
+            \end{frame}}
+}
+
+%% This will create the default slide for general purpose content:
+
+\newcommand{\SlideTextA}[2]{{
+            \usebackgroundtemplate{\includegraphics[width=\paperwidth]{./03_images/template/content_a.png}}
+            \color{fgcolor}
+            \begin{frame}
+                \frametitle{#1}
+                #2
+            \end{frame}}
+}
+
+%% This slide will receive an image as a parameter and use it as background:
+\newcommand{\SlideGBImage}[3]{{
+            \usebackgroundtemplate{\includegraphics[width=\paperwidth]{#1}}
+            \color{bgcolor}
+            \begin{frame}
+                \frametitle{#2}
+                #3
+            \end{frame}}
+}
+
+%% This will create a References section, splitting the content in multiple slides if necessary:
+\newcommand{\SlideRefs}[2]{{
+            \usebackgroundtemplate{\includegraphics[width=\paperwidth]{./03_images/template/content_a.png}}
+            \color{fgcolor}
+            \begin{frame}[allowframebreaks]
+                \frametitle{#1}
+                \renewcommand*{\bibfont}{\footnotesize}
+                #2
+            \end{frame}}
+}
+
+%% This will create a closing slide, with the big IPT logo:
+\newcommand{\SlideEnd}{{
+            \usebackgroundtemplate{\includegraphics[width=\paperwidth]{./03_images/template/ending_b.png}}
+            \color{bgcolor}
+            \setbeamertemplate{footline}{}
+            \begin{frame}
+                \centering
+                \vspace*{0.65\textheight}
+                \large{OBRIGADO!}
+            \end{frame}}
+}
+
+%% This will position the titles at the center of the slides:
+\setbeamertemplate{frametitle}{
+    \begin{center}
+        \bigskip
+        \textbf
+        \insertframetitle
+    \end{center}
+}
+
+%% This will proper format the figure captions:
+% \ABNTfigure{caption}{reference}{path}{size}{label}
+\newcommand{\ABNTfigure}[5]{
+    \begin{figure}[ht]
+        \centering
+        \caption{#1}
+        \includegraphics[#4]{#3}
+        \caption*{\textbf{Fonte:} #2}
+        \label{#5}
+    \end{figure}
+}
+
+%% This will proper format the figure captions, and also
+% expand the image to fill the maximum width and height available:
+% \ABNTfigureAuto{caption}{reference}{path}{label}
+\newcommand{\ABNTfigureAuto}[4]{
+
+    \begin{figure}[!htb]
+        \centering
+        \vspace*{10pt}
+        \caption{#1}
+        \includegraphics[width=0.9\textwidth,height=0.57\textheight,keepaspectratio]{#3}
+        \caption*{\textbf{Fonte:} #2}
+        \label{#4}
+    \end{figure}
+}
+
+%% This will implement boards, that are like tables, but
+% used mainly for qualitative data:
+\newcounter{boards}
+\newcommand{\listboardname}{Lista de Quadros}
+\newcommand{\board}[1] {
+    \refstepcounter{boards}
+    \par\noindent\textbf{Quadro \theboards\space--\space}#1
+    \addcontentsline{lob}{boards}
+    {\protect\numberline{\theboards}#1}\par
+}
+
+%% Now the boards environment is created, this shortcut will
+% make it easier to use them:
+% \ABNTboard{caption}{reference}{label}{tabular}
+\newcommand{\ABNTboard}[4]{
+    \begin{table}[ht]
+        \centering
+        \board{#1}
+        \label{#3}
+        #4
+        \caption*{\textbf{Fonte:} #2}
+    \end{table}
+}
+
+%% This will create a nice table of contents before each section:
+\AtBeginSection[]
+{
+    \begingroup
+    \SlideTextA{Conteúdo}{
+        \tableofcontentscurrent
+    }
+    \endgroup
+}
+\setbeamertemplate{section in toc}{$\blacktriangleright$ \inserttocsection}
+
+% =============================================================================
