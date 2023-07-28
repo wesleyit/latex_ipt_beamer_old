@@ -129,6 +129,13 @@
     }
     \endgroup
 }
-\setbeamertemplate{section in toc}{$\blacktriangleright$ \inserttocsection}
+\setbeamertemplate{section in toc}{
+    \color{fgcolor}
+    $\blacktriangleright$ \inserttocsection
+}
+\setbeamertemplate{subsection in toc}{
+    \color{fgcolor}
+    \hspace*{10pt}$\circ$ \inserttocsubsection\par
+}
 
 % =============================================================================
